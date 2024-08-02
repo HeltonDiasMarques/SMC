@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: Smc
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/smc
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  hikari:
+    maximum-pool-size: 3
+    maximum-idle: 2
+    idle-timeout: 20000
+    poolName: SMC
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          core:
+            JdbcTemplate: DEBUG
+          StatementCreatorUtils: TRACE
