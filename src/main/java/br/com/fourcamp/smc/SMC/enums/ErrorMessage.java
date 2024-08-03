@@ -46,7 +46,8 @@ ErrorMessage {
     // Specific validation errors
     INVALID_DATE_FORMAT(400, "Invalid date format"),
     DATABASE_ERROR(500, "Database error"),
-    DATA_INTEGRITY_VIOLATION(409, "Data integrity violation");
+    DATA_INTEGRITY_VIOLATION(409, "Data integrity violation"),
+    SQL_EXCEPTION(500,"A SQL error occurred" );
 
     private final int statusCode;
     private final String message;

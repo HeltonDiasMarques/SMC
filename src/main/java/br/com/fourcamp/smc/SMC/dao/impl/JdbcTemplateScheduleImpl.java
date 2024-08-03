@@ -11,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
@@ -96,6 +95,8 @@ public class JdbcTemplateScheduleImpl implements IJdbcTemplateScheduleDao {
                 "ORDER BY s.start_time " +
                 "LIMIT 1";
 
+        logger.info("Executing findAvailableDoctor with specialty: {}, date: {}, startTime: {}", specialty, date, startTime);
+
         return jdbcTemplate.query(sql, new Object[]{specialty.getDescription(), date, startTime}, rs -> {
             if (rs.next()) {
                 Doctor doctor = new Doctor();
@@ -103,13 +104,16 @@ public class JdbcTemplateScheduleImpl implements IJdbcTemplateScheduleDao {
                 doctor.setName(rs.getString("name"));
                 doctor.setEmail(rs.getString("email"));
                 doctor.setSpecialty(Specialty.fromDescription(rs.getString("specialty")));
+                logger.info("Available doctor found: {}", doctor.getId());
                 return Optional.of(doctor);
             } else {
+                logger.warn("No available doctor found.");
                 return Optional.empty();
             }
         });
     }
 
+    @Override
     public void bookConsultation(String patientId, String doctorId, Date date, Time startTime) {
         Time endTime = calculateEndTime(startTime);
         String sql = "SELECT book_consultation(?, ?, ?, ?, ?)";
