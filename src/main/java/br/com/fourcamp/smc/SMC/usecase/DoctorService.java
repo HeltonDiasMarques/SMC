@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -18,15 +19,18 @@ import java.util.Optional;
 @Service
 public class DoctorService extends UserService<Doctor> {
     private static final Logger logger = LoggerFactory.getLogger(DoctorService.class);
+    private final PasswordEncoder passwordEncoder;
     @Autowired
-    public DoctorService(@Qualifier("doctorDao") IJdbcTemplateUserDao<Doctor> iJdbcTemplateUserDao, CepService cepService) {
+    public DoctorService(@Qualifier("doctorDao") IJdbcTemplateUserDao<Doctor> iJdbcTemplateUserDao, CepService cepService, PasswordEncoder passwordEncoder) {
         super(iJdbcTemplateUserDao, cepService);
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public void saveUser(Doctor doctor, Class<Doctor> clazz) {
         validateDoctor(doctor, true);
         doctor.setUserType(UserType.DOCTOR);
+        doctor.setPassword(passwordEncoder.encode(doctor.getPassword()));
         super.saveUser(doctor, clazz);
     }
 
@@ -37,15 +41,16 @@ public class DoctorService extends UserService<Doctor> {
         super.updateUser(doctor, clazz);
     }
 
-    public Doctor login(String id, String password) {
-        Doctor doctor = getJdbcTemplateUserDao().findById(id, Doctor.class)
+    public Doctor login(String email, String password) {
+        Doctor doctor = getJdbcTemplateUserDao().findByEmail(email, Doctor.class)
                 .orElseThrow(() -> new CustomException(ErrorMessage.USER_NOT_FOUND));
-        if (doctor.getPassword().equals(password)) {
+        if (passwordEncoder.matches(password, doctor.getPassword())) {
             return doctor;
         } else {
             throw new CustomException(ErrorMessage.INVALID_PASSWORD);
         }
     }
+
 
     private boolean isCrmDuplicated(String crm) {
         boolean exists = getJdbcTemplateUserDao().existsByCrm(crm);
