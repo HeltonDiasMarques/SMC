@@ -135,8 +135,8 @@ public class JdbcTemplateScheduleImpl implements IJdbcTemplateScheduleDao {
     }
 
 
-    public void cancelAndDuplicateConsultation(String patientId, String startTime) {
-        String sql = "SELECT cancel_and_duplicate_consultation_by_patient(?, ?)";
+    public void cancelConsultation(String patientId, String startTime) {
+        String sql = "SELECT cancel_and_register_consultation(?, ?)";
         try {
             jdbcTemplate.execute(sql, (PreparedStatement ps) -> {
                 ps.setString(1, patientId);
@@ -144,6 +144,8 @@ public class JdbcTemplateScheduleImpl implements IJdbcTemplateScheduleDao {
                 ps.execute();
                 return null;
             });
+        } catch (DataIntegrityViolationException e) {
+            throw new CustomException(ErrorMessage.DATA_INTEGRITY_VIOLATION);
         } catch (Exception e) {
             throw new CustomException(ErrorMessage.DATABASE_ERROR);
         }

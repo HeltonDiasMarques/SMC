@@ -100,7 +100,7 @@ public class ScheduleService {
 
     public void cancelConsultation(String patientId, String startTime) {
         try {
-            jdbcTemplateSchedule.cancelAndDuplicateConsultation(patientId, startTime);
+            jdbcTemplateSchedule.cancelConsultation(patientId, startTime);
         } catch (Exception e) {
             throw new CustomException(ErrorMessage.DATABASE_ERROR);
         }
