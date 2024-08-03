@@ -19,11 +19,6 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
 
-logging:
-  level:
-    org:
-      springframework:
-        jdbc:
-          core:
-            JdbcTemplate: DEBUG
-          StatementCreatorUtils: TRACE
+jwt:
+  secret: mySecretKey
+  expiration: 3600

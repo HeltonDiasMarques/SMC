@@ -1,5 +1,7 @@
 package br.com.fourcamp.smc.SMC.controller;
 
+import br.com.fourcamp.smc.SMC.config.security.JwtResponse;
+import br.com.fourcamp.smc.SMC.config.security.JwtTokenProvider;
 import br.com.fourcamp.smc.SMC.dto.LoginRequest;
 import br.com.fourcamp.smc.SMC.model.Patient;
 import br.com.fourcamp.smc.SMC.usecase.PatientService;
@@ -10,6 +12,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -18,6 +22,8 @@ import java.util.Map;
 @RequestMapping("/patients")
 public class PatientController extends UserController<Patient> {
     private PatientService patientService;
+    @Autowired
+    private JwtTokenProvider jwtTokenProvider;
 
     @Autowired
     public PatientController(PatientService patientService) {
@@ -31,7 +37,7 @@ public class PatientController extends UserController<Patient> {
             @ApiResponse(responseCode = "400", description = "Validation error"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @PostMapping
+    @PostMapping("/register")
     public ResponseEntity<?> createPatient(@RequestBody Patient patient) {
         try {
             return createUser(patient);
@@ -77,7 +83,7 @@ public class PatientController extends UserController<Patient> {
             @ApiResponse(responseCode = "200",description = "Patients found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<?> getAllPatients() {
         try {
             return getAllUsers(Patient.class);
@@ -97,7 +103,12 @@ public class PatientController extends UserController<Patient> {
     public ResponseEntity<?> loginPatient(@RequestBody LoginRequest loginRequest) {
         try {
             Patient patient = patientService.login(loginRequest.getEmail(), loginRequest.getPassword());
-            return ResponseEntity.ok(patient);
+            UserDetails userDetails = User.withUsername(patient.getEmail())
+                    .password(patient.getPassword())
+                    .authorities("USER")
+                    .build();
+            final String token = jwtTokenProvider.generateToken(userDetails);
+            return ResponseEntity.ok(new JwtResponse(token));
         } catch (CustomException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getMessage());
         }
