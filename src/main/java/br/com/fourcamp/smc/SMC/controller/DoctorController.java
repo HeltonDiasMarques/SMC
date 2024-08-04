@@ -19,6 +19,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+/**
+ * Controller for managing doctors.
+ */
 @RestController
 @RequestMapping("/doctors")
 public class DoctorController extends UserController<Doctor> {
@@ -33,6 +36,12 @@ public class DoctorController extends UserController<Doctor> {
         this.doctorService = doctorService;
     }
 
+    /**
+     * Creates a new doctor.
+     *
+     * @param doctor the doctor to create
+     * @return the response entity with the created doctor or an error message
+     */
     @Operation(summary = "Create a new doctor")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Doctor created successfully"),
@@ -49,6 +58,12 @@ public class DoctorController extends UserController<Doctor> {
         }
     }
 
+    /**
+     * Updates an existing doctor.
+     *
+     * @param doctor the doctor to update
+     * @return the response entity with the updated doctor or an error message
+     */
     @Operation(summary = "Update an existing doctor")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Doctor updated successfully"),
@@ -66,6 +81,12 @@ public class DoctorController extends UserController<Doctor> {
         }
     }
 
+    /**
+     * Gets a doctor by their ID.
+     *
+     * @param request the request containing the doctor ID
+     * @return the response entity with the doctor or an error message
+     */
     @Operation(summary = "Get a doctor by ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Doctor found"),
@@ -82,6 +103,11 @@ public class DoctorController extends UserController<Doctor> {
         }
     }
 
+    /**
+     * Gets all doctors.
+     *
+     * @return the response entity with the list of doctors or an error message
+     */
     @Operation(summary = "Get all doctors")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Doctors found"),
@@ -96,6 +122,12 @@ public class DoctorController extends UserController<Doctor> {
         }
     }
 
+    /**
+     * Logs in a doctor.
+     *
+     * @param loginRequest the login request
+     * @return the response entity with the JWT token or an error message
+     */
     @Operation(summary = "Doctor login")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Login successful"),

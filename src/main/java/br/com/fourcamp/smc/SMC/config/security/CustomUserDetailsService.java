@@ -14,6 +14,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+/**
+ * Custom implementation of UserDetailsService for loading user-specific data.
+ */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
@@ -25,6 +28,13 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     private JdbcTemplateUserImpl<Doctor> doctorRepository;
 
+    /**
+     * Loads the user by their email.
+     *
+     * @param email the email of the user
+     * @return UserDetails object containing user information
+     * @throws UsernameNotFoundException if the user is not found
+     */
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         logger.info("Looking for user with email: {}", email);

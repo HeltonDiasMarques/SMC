@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+/**
+ * Controller for managing patients.
+ */
 @RestController
 @RequestMapping("/patients")
 public class PatientController extends UserController<Patient> {
@@ -31,6 +34,12 @@ public class PatientController extends UserController<Patient> {
         this.patientService = patientService;
     }
 
+    /**
+     * Creates a new patient.
+     *
+     * @param patient the patient to create
+     * @return the response entity with the created patient or an error message
+     */
     @Operation(summary = "Create a new patient")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Patient created"),
@@ -46,6 +55,12 @@ public class PatientController extends UserController<Patient> {
         }
     }
 
+    /**
+     * Updates an existing patient.
+     *
+     * @param patient the patient to update
+     * @return the response entity with the updated patient or an error message
+     */
     @Operation(summary = "Update an existing patient")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Patient updated successfully"),
@@ -62,6 +77,12 @@ public class PatientController extends UserController<Patient> {
         }
     }
 
+    /**
+     * Gets a patient by their ID.
+     *
+     * @param request the request containing the patient ID
+     * @return the response entity with the patient or an error message
+     */
     @PostMapping("/find")
     @Operation(summary = "Get a patient by ID")
     @ApiResponses(value = {
@@ -78,6 +99,11 @@ public class PatientController extends UserController<Patient> {
         }
     }
 
+    /**
+     * Gets all patients.
+     *
+     * @return the response entity with the list of patients or an error message
+     */
     @Operation(summary = "Get all patients")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",description = "Patients found"),
@@ -92,6 +118,12 @@ public class PatientController extends UserController<Patient> {
         }
     }
 
+    /**
+     * Logs in a patient.
+     *
+     * @param loginRequest the login request
+     * @return the response entity with the JWT token or an error message
+     */
     @PostMapping("/login")
     @Operation(summary = "Patient login")
     @ApiResponses(value = {

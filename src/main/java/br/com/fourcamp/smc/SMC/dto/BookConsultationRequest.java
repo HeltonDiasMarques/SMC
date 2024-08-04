@@ -3,6 +3,9 @@ package br.com.fourcamp.smc.SMC.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+/**
+ * Data Transfer Object (DTO) for booking a consultation request.
+ */
 @Data
 public class BookConsultationRequest {
     @Schema(description = "ID of the patient", example = "P123")

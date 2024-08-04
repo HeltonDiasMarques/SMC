@@ -22,6 +22,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Service class for managing schedules.
+ * This class provides methods for saving schedules, retrieving schedules by doctor or patient ID, booking consultations, and canceling consultations.
+ */
 @Service
 public class ScheduleService {
     private static final Logger logger = LoggerFactory.getLogger(ScheduleService.class);
@@ -31,6 +35,12 @@ public class ScheduleService {
         this.jdbcTemplateSchedule = jdbcTemplateSchedule;
     }
 
+    /**
+     * Saves a new schedule to the database.
+     *
+     * @param scheduleRequestDto the schedule request data transfer object
+     * @throws CustomException if data integrity or database errors occur
+     */
     public void saveSchedule(ScheduleRequestDto scheduleRequestDto) {
         LocalDate localDate = LocalDate.parse(scheduleRequestDto.getDate(), DateTimeFormatter.ISO_DATE);
         LocalTime localStartTime = LocalTime.parse(scheduleRequestDto.getStartTime(), DateTimeFormatter.ISO_TIME);
@@ -56,6 +66,13 @@ public class ScheduleService {
         }
     }
 
+    /**
+     * Retrieves schedules by doctor ID.
+     *
+     * @param doctorId the doctor ID
+     * @return a list of schedules for the specified doctor ID
+     * @throws CustomException if no schedules are found
+     */
     public List<Schedule> getScheduleByDoctorId(String doctorId) {
         logger.info("Fetching schedules for doctorId: {}", doctorId);
         List<Schedule> schedules = jdbcTemplateSchedule.findSchedulesByDoctorId(doctorId);
@@ -66,6 +83,13 @@ public class ScheduleService {
         return schedules;
     }
 
+    /**
+     * Retrieves schedules by patient ID.
+     *
+     * @param patientId the patient ID
+     * @return a list of schedules for the specified patient ID
+     * @throws CustomException if no schedules are found
+     */
     public List<Schedule> getScheduleByPatientId(String patientId) {
         logger.info("Fetching schedules for patientId: {}", patientId);
         List<Schedule> schedules = jdbcTemplateSchedule.findSchedulesByPatientId(patientId);
@@ -76,6 +100,12 @@ public class ScheduleService {
         return schedules;
     }
 
+    /**
+     * Books a consultation.
+     *
+     * @param request the book consultation request data transfer object
+     * @throws CustomException if the consultation cannot be booked
+     */
     public void bookConsultation(BookConsultationRequest request) {
         String patientId = request.getPatientId();
         Date date = Date.valueOf(request.getDate());
@@ -98,6 +128,13 @@ public class ScheduleService {
         }
     }
 
+    /**
+     * Cancels a consultation.
+     *
+     * @param patientId the patient ID
+     * @param startTime the start time of the consultation
+     * @throws CustomException if the consultation cannot be canceled
+     */
     public void cancelConsultation(String patientId, String startTime) {
         try {
             jdbcTemplateSchedule.cancelConsultation(patientId, startTime);

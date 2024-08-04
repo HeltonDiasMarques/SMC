@@ -18,6 +18,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Implementation of the IJdbcTemplateUserDao interface using JdbcTemplate.
+ *
+ * @param <U> the type of user
+ */
 @Repository
 public class JdbcTemplateUserImpl<U extends User> implements IJdbcTemplateUserDao<U> {
     private final JdbcTemplate jdbcTemplate;
@@ -160,6 +165,13 @@ public class JdbcTemplateUserImpl<U extends User> implements IJdbcTemplateUserDa
         }
     }
 
+    /**
+     * Sets common parameters for the prepared statement.
+     *
+     * @param ps the prepared statement
+     * @param user the user
+     * @throws SQLException if an SQL error occurs
+     */
     protected void setCommonParameters(PreparedStatement ps, U user) throws SQLException {
         ps.setString(1, user.getId());
         ps.setString(2, user.getName());
@@ -192,6 +204,14 @@ public class JdbcTemplateUserImpl<U extends User> implements IJdbcTemplateUserDa
         }
     }
 
+    /**
+     * Maps a result set row to a user.
+     *
+     * @param rs the result set
+     * @param clazz the class type of the user
+     * @return the mapped user
+     * @throws SQLException if an SQL error occurs
+     */
     private U mapRowToUser(ResultSet rs, Class<U> clazz) throws SQLException {
         Address address = Address.builder()
                 .cep(rs.getString("cep"))

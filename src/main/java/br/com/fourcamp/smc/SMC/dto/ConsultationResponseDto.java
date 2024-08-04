@@ -8,6 +8,9 @@ import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 
+/**
+ * Data Transfer Object (DTO) for consultation response.
+ */
 @Data
 public class ConsultationResponseDto {
     @Schema(description = "ID of the consultation", example = "C123")

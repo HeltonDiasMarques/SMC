@@ -3,9 +3,9 @@ package br.com.fourcamp.smc.SMC.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-import java.sql.Date;
-import java.sql.Time;
-
+/**
+ * Data Transfer Object (DTO) for consultation request.
+ */
 @Data
 public class ConsultationRequestDto {
     @Schema(description = "ID of the patient", example = "P123")

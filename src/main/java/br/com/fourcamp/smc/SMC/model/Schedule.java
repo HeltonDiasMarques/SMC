@@ -10,6 +10,10 @@ import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 
+/**
+ * Represents a schedule in the system.
+ * This class contains the details of a schedule, including the doctor, patient, date, time, status, and timestamps.
+ */
 @Data
 @SuperBuilder
 @NoArgsConstructor
@@ -41,6 +45,19 @@ public class Schedule {
     @Schema(description = "Timestamp when the schedule was last updated", example = "2024-07-31T10:00:00Z")
     private Timestamp updatedAt;
 
+    /**
+     * Constructs a new Schedule with the specified details.
+     *
+     * @param id         the ID of the schedule
+     * @param doctorId   the ID of the doctor
+     * @param patientId  the ID of the patient
+     * @param date       the date of the schedule
+     * @param startTime  the start time of the schedule
+     * @param endTime    the end time of the schedule
+     * @param status     the status of the schedule
+     * @param createdAt  the timestamp when the schedule was created
+     * @param updatedAt  the timestamp when the schedule was last updated
+     */
     public Schedule(String id,
                     String doctorId,
                     String patientId,

@@ -6,6 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * Represents a user in the system.
+ * This class contains basic user information and is used as a base for other specific user types.
+ */
 @Data
 @SuperBuilder
 @NoArgsConstructor
@@ -37,6 +41,18 @@ public class User {
     @Schema(description = "Type of user", example = "userType")
     private UserType userType;
 
+    /**
+     * Constructs a new User with the specified details.
+     *
+     * @param id the ID of the user
+     * @param name the name of the user
+     * @param email the email of the user
+     * @param password the password of the user
+     * @param cpf the CPF of the user
+     * @param datebirth the date of birth of the user
+     * @param address the address of the user
+     * @param phone the phone number of the user
+     */
     public User(String id,
                 String name,
                 String email,

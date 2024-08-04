@@ -18,6 +18,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
+/**
+ * Abstract service class for managing users.
+ * This class provides common methods for saving, updating, and retrieving users.
+ */
 @Service
 public abstract class UserService<U extends User> {
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
@@ -34,6 +38,13 @@ public abstract class UserService<U extends User> {
         return iJdbcTemplateUserDao;
     }
 
+    /**
+     * Saves a new user to the database.
+     *
+     * @param user  the user to save
+     * @param clazz the class of the user
+     * @throws CustomException if validation or database errors occur
+     */
     public void saveUser(U user, Class<U> clazz) {
         try {
             validateUser(user, true);
@@ -51,6 +62,13 @@ public abstract class UserService<U extends User> {
         }
     }
 
+    /**
+     * Updates an existing user in the database.
+     *
+     * @param user  the user to update
+     * @param clazz the class of the user
+     * @throws CustomException if validation or database errors occur
+     */
     public void updateUser(U user, Class<U> clazz) {
         try {
             Optional<U> existingUserOptional = iJdbcTemplateUserDao.findById(user.getId(), clazz);
@@ -79,14 +97,33 @@ public abstract class UserService<U extends User> {
         }
     }
 
+    /**
+     * Finds a user by their ID.
+     *
+     * @param id    the ID of the user
+     * @param clazz the class of the user
+     * @return an Optional containing the user if found, or an empty Optional if not found
+     */
     public Optional<U> findUserById(String id, Class<U> clazz) {
         return iJdbcTemplateUserDao.findById(id, clazz);
     }
 
+    /**
+     * Finds all users.
+     *
+     * @param clazz the class of the users
+     * @return a list of all users
+     */
     public List<U> findAllUsers(Class<U> clazz) {
         return iJdbcTemplateUserDao.findAll(clazz);
     }
 
+    /**
+     * Generates a user ID based on the class of the user.
+     *
+     * @param clazz the class of the user
+     * @return a generated user ID
+     */
     private String generateUserId(Class<? extends User> clazz) {
         String prefix = clazz.equals(Patient.class) ? "P" : clazz.equals(Doctor.class) ? "D" : "U";
         Random random = new Random();
@@ -94,6 +131,13 @@ public abstract class UserService<U extends User> {
         return String.format("%s%03d", prefix, suffix);
     }
 
+    /**
+     * Validates the user's information.
+     *
+     * @param user  the user to validate
+     * @param isNew indicates if the user is new (true) or existing (false)
+     * @throws CustomException if validation errors occur
+     */
     protected void validateUser(U user, boolean isNew) {
         NotEmptyValidator.validate(user);
         CpfValidator.validateCpf(user, isNew, iJdbcTemplateUserDao);
