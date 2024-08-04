@@ -12,6 +12,8 @@ spring:
     maximum-idle: 2
     idle-timeout: 20000
     poolName: SMC
+  security:
+    enabled: false
 
 springdoc:
   api-docs:

@@ -95,6 +95,13 @@ public class JdbcTemplateScheduleImpl implements IJdbcTemplateScheduleDao {
                 "ORDER BY s.start_time " +
                 "LIMIT 1";
 
+        int specialtyCode;
+        try{
+            specialtyCode = Specialty.fromDescription(String.valueOf(specialty)).getCode();
+        }catch(IllegalArgumentException e){
+            logger.error("Invalid specialty description: {}", specialty);
+            return Optional.empty();
+        }
         logger.info("Executing findAvailableDoctor with specialty: {}, date: {}, startTime: {}", specialty, date, startTime);
 
         return jdbcTemplate.query(sql, new Object[]{specialty.getDescription(), date, startTime}, rs -> {
@@ -103,7 +110,7 @@ public class JdbcTemplateScheduleImpl implements IJdbcTemplateScheduleDao {
                 doctor.setId(rs.getString("id"));
                 doctor.setName(rs.getString("name"));
                 doctor.setEmail(rs.getString("email"));
-                doctor.setSpecialty(Specialty.fromDescription(rs.getString("specialty")));
+                doctor.setSpecialty(Specialty.fromDescription(rs.getString("specialty")).getCode());
                 logger.info("Available doctor found: {}", doctor.getId());
                 return Optional.of(doctor);
             } else {
@@ -140,7 +147,7 @@ public class JdbcTemplateScheduleImpl implements IJdbcTemplateScheduleDao {
         try {
             jdbcTemplate.execute(sql, (PreparedStatement ps) -> {
                 ps.setString(1, patientId);
-                ps.setString(2, startTime);
+                ps.setTime(2, Time.valueOf(startTime));
                 ps.execute();
                 return null;
             });

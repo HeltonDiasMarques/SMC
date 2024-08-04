@@ -19,7 +19,11 @@ public class PhoneSpareValidator {
         String phoneSpare = patient.getPhoneSpare();
 
         if (phoneSpare != null) {
-            phoneSpare = PhoneValidator.normalizeAndValidate(phoneSpare);
+            try {
+                phoneSpare = PhoneValidator.normalizeAndValidate(phoneSpare);
+            }catch (CustomException e){
+                throw new CustomException(ErrorMessage.INVALID_PHONE_SPARE);
+            }
             if (isPhoneSpareEqualToPhone(phone, phoneSpare)) {
                 throw new CustomException(ErrorMessage.PHONE_SPARE_EQUAL_TO_PHONE);
             }

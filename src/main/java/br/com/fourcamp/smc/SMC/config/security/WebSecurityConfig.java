@@ -41,7 +41,8 @@ public class WebSecurityConfig {
                                 "/patients/register",
                                 "/patients/login",
                                 "/doctors/register",
-                                "/doctors/login").permitAll()
+                                "/doctors/login",
+                                "/test/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session

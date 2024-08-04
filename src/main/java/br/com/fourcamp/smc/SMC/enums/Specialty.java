@@ -1,5 +1,8 @@
 package br.com.fourcamp.smc.SMC.enums;
 
+/**
+ * Enumeration for medical specialties.
+ */
 public enum Specialty {
     CARDIOLOGY(0, "Cardiology"),
     DERMATOLOGY(1, "Dermatology"),
@@ -20,14 +23,31 @@ public enum Specialty {
         this.description = description;
     }
 
+    /**
+     * Gets the code of the specialty.
+     *
+     * @return the code of the specialty
+     */
     public int getCode() {
         return code;
     }
 
+    /**
+     * Gets the description of the specialty.
+     *
+     * @return the description of the specialty
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Gets the specialty from the code.
+     *
+     * @param code the code of the specialty
+     * @return the specialty corresponding to the code
+     * @throws IllegalArgumentException if the code is invalid
+     */
     public static Specialty fromCode(int code) {
         for (Specialty specialty : Specialty.values()) {
             if (specialty.getCode() == code) {
@@ -37,6 +57,13 @@ public enum Specialty {
         throw new IllegalArgumentException("Invalid specialty code: " + code);
     }
 
+    /**
+     * Gets the specialty from the description.
+     *
+     * @param description the description of the specialty
+     * @return the specialty corresponding to the description
+     * @throws IllegalArgumentException if the description is invalid
+     */
     public static Specialty fromDescription(String description) {
         for (Specialty specialty : Specialty.values()) {
             if (specialty.getDescription().equalsIgnoreCase(description)) {
