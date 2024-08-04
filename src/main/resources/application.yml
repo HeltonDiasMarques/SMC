@@ -14,13 +14,11 @@ spring:
     poolName: SMC
   security:
     enabled: false
-
 springdoc:
   api-docs:
     path: /v3/api-docs
   swagger-ui:
     path: /swagger-ui.html
-
 jwt:
   secret: mySecretKey
   expiration: 3600

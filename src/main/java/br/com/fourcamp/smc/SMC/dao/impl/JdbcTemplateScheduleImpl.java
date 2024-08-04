@@ -157,7 +157,7 @@ public class JdbcTemplateScheduleImpl implements IJdbcTemplateScheduleDao {
         } catch (DataIntegrityViolationException e) {
             throw new CustomException(ErrorMessage.DATA_INTEGRITY_VIOLATION);
         } catch (Exception e) {
-            throw new CustomException(ErrorMessage.DATABASE_ERROR);
+            throw new CustomException(ErrorMessage.CANCELLATIONS_ERROR);
         }
     }
 

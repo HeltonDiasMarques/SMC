@@ -42,8 +42,8 @@ ErrorMessage {
     // Schedule related errors
     SCHEDULE_NOT_FOUND(404, "Schedule not found"),
     SCHEDULE_CONFLICT(409, "Schedule conflict: This schedule already exists for the doctor on the given date and time"),
-
     CONSULTATION_NOT_FOUND(404, "Consultation not found"),
+    CANCELLATIONS_ERROR(404, "Cancellations error"),
 
     // General errors
     INVALID_PASSWORD(401, "Invalid password"),

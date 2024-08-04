@@ -139,7 +139,7 @@ public class ScheduleService {
         try {
             jdbcTemplateSchedule.cancelConsultation(patientId, startTime);
         } catch (Exception e) {
-            throw new CustomException(ErrorMessage.DATABASE_ERROR);
+            throw new CustomException(ErrorMessage.CANCELLATIONS_ERROR);
         }
     }
 }
