@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Controller for managing schedules.
+ */
 @RestController
 @RequestMapping("/schedules")
 public class ScheduleController {
@@ -28,6 +31,12 @@ public class ScheduleController {
         this.scheduleService = scheduleService;
     }
 
+    /**
+     * Creates a new schedule.
+     *
+     * @param scheduleRequestDto the schedule request DTO
+     * @return the response entity with a success message or an error message
+     */
     @Operation(summary = "Create a new schedule")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Schedule created successfully"),
@@ -44,6 +53,12 @@ public class ScheduleController {
         }
     }
 
+    /**
+     * Gets the schedule by doctor ID.
+     *
+     * @param request the request containing the doctor ID
+     * @return the response entity with the list of schedules or an error message
+     */
     @Operation(summary = "Get schedule by doctor ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Schedule found"),
@@ -61,6 +76,12 @@ public class ScheduleController {
         }
     }
 
+    /**
+     * Gets the schedule by patient ID.
+     *
+     * @param request the request containing the patient ID
+     * @return the response entity with the list of schedules or an error message
+     */
     @Operation(summary = "Get schedule by patient ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Schedule found"),
@@ -78,6 +99,12 @@ public class ScheduleController {
         }
     }
 
+    /**
+     * Books a consultation.
+     *
+     * @param request the book consultation request
+     * @return the response entity with a success message or an error message
+     */
     @Operation(summary = "Book a consultation")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Consultation booked successfully"),
@@ -95,6 +122,12 @@ public class ScheduleController {
         }
     }
 
+    /**
+     * Cancels a consultation by patient ID and start time.
+     *
+     * @param request the cancel consultation request
+     * @return the response entity with a success message or an error message
+     */
     @Operation(summary = "Cancel a consultation by patient ID and start time")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Consultation cancelled successfully"),

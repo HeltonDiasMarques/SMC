@@ -5,6 +5,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * Represents a doctor in the system.
+ * This class extends the User class and includes additional information specific to doctors.
+ */
 @Data
 @Setter
 @Getter
@@ -18,6 +22,20 @@ public class Doctor extends User {
     @Schema(description = "Specialty of the doctor", example = "1")
     private int specialty;
 
+    /**
+     * Constructs a new Doctor with the specified details.
+     *
+     * @param id             the ID of the doctor
+     * @param name           the name of the doctor
+     * @param email          the email of the doctor
+     * @param password       the password of the doctor
+     * @param cpf            the CPF of the doctor
+     * @param dateBirth      the date of birth of the doctor
+     * @param address        the address of the doctor
+     * @param phone          the phone number of the doctor
+     * @param crm            the CRM of the doctor
+     * @param specialtyCode  the specialty code of the doctor
+     */
     public Doctor(String id,
                   String name,
                   String email,

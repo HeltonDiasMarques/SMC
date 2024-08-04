@@ -1,8 +1,11 @@
 package br.com.fourcamp.smc.SMC.enums;
 
+/**
+ * Enum representing various error messages and their associated HTTP status codes.
+ */
 public enum
 ErrorMessage {
-    //Not Empty--------------------------------------------------------------------------------
+    //Not Empty
     NAME_CANNOT_BE_EMPTY(400, "Name cannot be empty"),
     EMAIL_CANNOT_BE_EMPTY(400, "Email cannot be empty"),
     PASSWORD_CANNOT_BE_EMPTY(400, "Password cannot be empty"),
@@ -15,7 +18,7 @@ ErrorMessage {
     CRM_CANNOT_BE_EMPTY(400, "CRM cannot be empty"),
     SPECIALTY_CANNOT_BE_EMPTY(400, "Specialty cannot be empty"),
 
-    // User related errors----------------------------------------------------------------------------
+    // User related errors
     USER_NOT_FOUND(404, "User not found"),
     INVALID_EMAIL_FORMAT(400, "Invalid email"),
     EMAIL_ALREADY_EXISTS(409, "Email already exists"),
@@ -27,20 +30,22 @@ ErrorMessage {
     PHONE_ALREADY_EXISTS(409, "Phone already registered"),
     UNSUPPORTED_USER_TYPE(400, "Unsupported user type"),
     ACCESS_DENIED(403, "Access denied"),
-    //Patient related errors--------------------------------------------------------------------------------
+
+    //Patient related errors
     INVALID_PHONE_SPARE(400, "Invalid phone spare"),
     PHONE_SPARE_EQUAL_TO_PHONE(409, "Phone and phone spare cannot be the same"),
-    // Doctor related errors--------------------------------------------------------------------------------
+
+    // Doctor related errors
     INVALID_CRM_FORMAT(400, "Invalid CRM"),
     CRM_ALREADY_REGISTERED(409, "CRM already registered"),
 
-    // Schedule related errors--------------------------------------------------------------------------------
+    // Schedule related errors
     SCHEDULE_NOT_FOUND(404, "Schedule not found"),
     SCHEDULE_CONFLICT(409, "Schedule conflict: This schedule already exists for the doctor on the given date and time"),
 
     CONSULTATION_NOT_FOUND(404, "Consultation not found"),
 
-    // General errors--------------------------------------------------------------------------------
+    // General errors
     INVALID_PASSWORD(401, "Invalid password"),
 
     // Specific validation errors
@@ -49,6 +54,12 @@ ErrorMessage {
     DATA_INTEGRITY_VIOLATION(409, "Data integrity violation"),
     SQL_EXCEPTION(500,"A SQL error occurred" );
 
+    /**
+     * Constructs a new ErrorMessage with the specified status code and message.
+     *
+     * @param statusCode the HTTP status code associated with the error
+     * @param message the error message
+     */
     private final int statusCode;
     private final String message;
 
@@ -57,10 +68,20 @@ ErrorMessage {
         this.message = message;
     }
 
+    /**
+     * Gets the HTTP status code associated with the error.
+     *
+     * @return the HTTP status code
+     */
     public int getStatusCode() {
         return statusCode;
     }
 
+    /**
+     * Gets the error message.
+     *
+     * @return the error message
+     */
     public String getMessage() {
         return message;
     }

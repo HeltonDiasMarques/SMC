@@ -7,9 +7,18 @@ import br.com.fourcamp.smc.SMC.model.Patient;
 import br.com.fourcamp.smc.SMC.model.User;
 import io.swagger.v3.oas.annotations.media.Schema;
 
+/**
+ * Utility class for validating if fields are not empty.
+ */
 @Schema(description = "Utility class for validating if fields are not empty")
 public class NotEmptyValidator {
 
+    /**
+     * Validates if the user fields are not empty.
+     *
+     * @param user the user to validate
+     * @throws CustomException if any required field is empty
+     */
     @Schema(description = "Validates if the user fields are not empty")
     public static void validate(User user) {
         if (isNullOrEmpty(user.getName())) {
@@ -53,6 +62,12 @@ public class NotEmptyValidator {
         }
     }
 
+    /**
+     * Checks if a string is null or empty.
+     *
+     * @param str the string to check
+     * @return true if the string is null or empty, false otherwise
+     */
     @Schema(description = "Checks if a string is null or empty")
     private static boolean isNullOrEmpty(String str) {
         return str == null || str.trim().isEmpty();

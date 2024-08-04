@@ -16,6 +16,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * Service class for managing doctors.
+ * This class provides methods specific to doctors, including saving, updating, and logging in.
+ */
 @Service
 public class DoctorService extends UserService<Doctor> {
     private static final Logger logger = LoggerFactory.getLogger(DoctorService.class);
@@ -26,6 +30,14 @@ public class DoctorService extends UserService<Doctor> {
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**
+     * Saves a new doctor to the database.
+     *
+     * @param doctor the doctor to save
+     * @param clazz  the class of the doctor
+     * @throws CustomException if validation or database errors occur
+     */
+
     @Override
     public void saveUser(Doctor doctor, Class<Doctor> clazz) {
         validateDoctor(doctor, true);
@@ -34,6 +46,13 @@ public class DoctorService extends UserService<Doctor> {
         super.saveUser(doctor, clazz);
     }
 
+    /**
+     * Updates an existing doctor in the database.
+     *
+     * @param doctor the doctor to update
+     * @param clazz  the class of the doctor
+     * @throws CustomException if validation or database errors occur
+     */
     @Override
     public void updateUser(Doctor doctor, Class<Doctor> clazz) {
         validateDoctor(doctor, false);
@@ -41,6 +60,14 @@ public class DoctorService extends UserService<Doctor> {
         super.updateUser(doctor, clazz);
     }
 
+    /**
+     * Logs in a doctor using email and password.
+     *
+     * @param email    the email of the doctor
+     * @param password the password of the doctor
+     * @return the authenticated doctor
+     * @throws CustomException if the doctor is not found or the password is incorrect
+     */
     public Doctor login(String email, String password) {
         Doctor doctor = getJdbcTemplateUserDao().findByEmail(email, Doctor.class)
                 .orElseThrow(() -> new CustomException(ErrorMessage.USER_NOT_FOUND));
@@ -51,13 +78,25 @@ public class DoctorService extends UserService<Doctor> {
         }
     }
 
-
+    /**
+     * Checks if a CRM is duplicated.
+     *
+     * @param crm the CRM to check
+     * @return true if the CRM is duplicated, false otherwise
+     */
     private boolean isCrmDuplicated(String crm) {
         boolean exists = getJdbcTemplateUserDao().existsByCrm(crm);
         logger.info("CRM {} duplication check: {}", crm, exists);
         return exists;
     }
 
+    /**
+     * Validates a doctor.
+     *
+     * @param doctor the doctor to validate
+     * @param isNew  indicates if the doctor is new (true) or existing (false)
+     * @throws CustomException if validation errors occur
+     */
     private void validateDoctor(Doctor doctor, boolean isNew) {
         validateUser(doctor, isNew);
 

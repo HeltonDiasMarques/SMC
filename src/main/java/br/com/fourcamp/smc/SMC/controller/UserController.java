@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Abstract base controller for user-related operations.
+ *
+ * @param <U> the type of user
+ */
 @RestController
 public abstract class UserController<U extends User> {
 
@@ -23,6 +28,12 @@ public abstract class UserController<U extends User> {
         this.userService = userService;
     }
 
+    /**
+     * Creates a new user.
+     *
+     * @param user the user to create
+     * @return the response entity with the created user or an error message
+     */
     protected ResponseEntity<?> createUser(@RequestBody U user) {
         try {
             userService.saveUser(user, (Class<U>) user.getClass());
@@ -32,6 +43,12 @@ public abstract class UserController<U extends User> {
         }
     }
 
+    /**
+     * Updates an existing user.
+     *
+     * @param user the user to update
+     * @return the response entity with the updated user or an error message
+     */
     protected ResponseEntity<?> updateUser(@RequestBody U user) {
         try {
             userService.updateUser(user, (Class<U>) user.getClass());
@@ -41,6 +58,13 @@ public abstract class UserController<U extends User> {
         }
     }
 
+    /**
+     * Gets a user by their ID.
+     *
+     * @param id the ID of the user
+     * @param clazz the class type of the user
+     * @return the response entity with the user or an error message
+     */
     protected ResponseEntity<?> getUserById(String id, Class<U> clazz) {
         try {
             Optional<U> user = userService.findUserById(id, clazz);
@@ -50,6 +74,12 @@ public abstract class UserController<U extends User> {
         }
     }
 
+    /**
+     * Gets all users.
+     *
+     * @param clazz the class type of the users
+     * @return the response entity with the list of users or an error message
+     */
     protected ResponseEntity<?> getAllUsers(Class<U> clazz) {
         try {
             List<U> users = userService.findAllUsers(clazz);

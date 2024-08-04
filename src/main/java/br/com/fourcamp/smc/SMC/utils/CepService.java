@@ -9,6 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * Service for retrieving and validating address information using CEP.
+ */
 @Service
 @Schema(description = "Service for retrieving and validating address information using CEP")
 public class CepService {
@@ -16,6 +19,13 @@ public class CepService {
     private static final Logger logger = LoggerFactory.getLogger(CepService.class);
     private static final String VIACEP_URL = "https://viacep.com.br/ws/{cep}/json/";
 
+    /**
+     * Retrieves address information by CEP.
+     *
+     * @param cep the CEP to search for
+     * @return the address information corresponding to the CEP
+     * @throws CustomException if the CEP is invalid or the address cannot be retrieved
+     */
     @Schema(description = "Retrieves address information by CEP")
     public Address getAddressByCep(String cep) {
         RestTemplate restTemplate = new RestTemplate();
@@ -35,6 +45,12 @@ public class CepService {
                 .build();
     }
 
+    /**
+     * Validates if the provided CEP is valid.
+     *
+     * @param cep the CEP to validate
+     * @return true if the CEP is valid, false otherwise
+     */
     @Schema(description = "Validates if the provided CEP is valid")
     public boolean isValidCep(String cep) {
         try {
@@ -48,6 +64,9 @@ public class CepService {
         }
     }
 
+    /**
+     * Inner class to represent the response from ViaCEP.
+     */
     private static class ViaCepResponse {
         private String logradouro;
         private String bairro;

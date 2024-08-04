@@ -22,6 +22,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Implementation of the IJdbcTemplateScheduleDao interface using JdbcTemplate.
+ */
 @Repository
 public class JdbcTemplateScheduleImpl implements IJdbcTemplateScheduleDao {
     private static final Logger logger = LoggerFactory.getLogger(JdbcTemplateScheduleImpl.class);

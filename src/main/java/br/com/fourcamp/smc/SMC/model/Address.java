@@ -4,6 +4,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;
 
+/**
+ * Represents an address.
+ * This class contains the details of an address, including the street, neighborhood, city, state, and house number.
+ */
 @Data
 @Builder
 public class Address {

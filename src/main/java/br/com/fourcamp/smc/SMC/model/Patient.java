@@ -6,6 +6,10 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * Represents a patient in the system.
+ * This class extends the User class and includes additional information specific to patients.
+ */
 @Data
 @SuperBuilder
 @NoArgsConstructor
@@ -23,6 +27,22 @@ public class Patient extends User {
     @Schema(description = "Medical transcript of the patient", example = "string")
     private String transcript;
 
+    /**
+     * Constructs a new Patient with the specified details.
+     *
+     * @param id         the ID of the patient
+     * @param name       the name of the patient
+     * @param email      the email of the patient
+     * @param password   the password of the patient
+     * @param cpf        the CPF of the patient
+     * @param dateBirth  the date of birth of the patient
+     * @param address    the address of the patient
+     * @param phone      the phone number of the patient
+     * @param phoneSpare the spare phone number of the patient
+     * @param allergies  the allergies of the patient
+     * @param notes      additional notes about the patient
+     * @param transcript the medical transcript of the patient
+     */
     public Patient(String id,
                    String name,
                    String email,
