@@ -47,7 +47,7 @@ public class NotEmptyValidator {
             if (isNullOrEmpty(doctor.getCrm())) {
                 throw new CustomException(ErrorMessage.CRM_CANNOT_BE_EMPTY);
             }
-            if (doctor.getSpecialty() == null) {
+            if (doctor.getSpecialty() == -1) {
                 throw new CustomException(ErrorMessage.SPECIALTY_CANNOT_BE_EMPTY);
             }
         }

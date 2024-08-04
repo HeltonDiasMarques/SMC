@@ -183,7 +183,7 @@ public class JdbcTemplateUserImpl<U extends User> implements IJdbcTemplateUserDa
 
         } else if (user instanceof Doctor) {
             ps.setString(14, ((Doctor) user).getCrm());
-            ps.setString(15, ((Doctor) user).getSpecialty().getDescription());
+            ps.setString(15, ((Doctor) user).getSpecialtyDescription());
             ps.setString(16, user.getUserType().name());
         } else {
             ps.setString(14, null);
@@ -231,7 +231,7 @@ public class JdbcTemplateUserImpl<U extends User> implements IJdbcTemplateUserDa
                     .address(address)
                     .phone(rs.getString("phone"))
                     .crm(rs.getString("crm"))
-                    .specialty(Specialty.fromDescription(rs.getString("specialty")))
+                    .specialty(Specialty.fromDescription(rs.getString("specialty")).getCode())
                     .userType(userType)
                     .build());
         } else {

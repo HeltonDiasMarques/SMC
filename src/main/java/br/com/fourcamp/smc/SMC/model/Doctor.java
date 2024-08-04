@@ -2,12 +2,12 @@ package br.com.fourcamp.smc.SMC.model;
 
 import br.com.fourcamp.smc.SMC.enums.Specialty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Data
+@Setter
+@Getter
 @SuperBuilder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -16,7 +16,7 @@ public class Doctor extends User {
     private String crm;
 
     @Schema(description = "Specialty of the doctor", example = "1")
-    private Specialty specialty;
+    private int specialty;
 
     public Doctor(String id,
                   String name,
@@ -30,6 +30,10 @@ public class Doctor extends User {
                   int specialtyCode) {
         super(id, name, email, password, cpf, dateBirth, address, phone);
         this.crm = crm;
-        this.specialty = Specialty.fromCode(specialtyCode);
+        this.specialty = specialtyCode;
+    }
+
+    public String getSpecialtyDescription() {
+        return Specialty.fromCode(this.specialty).getDescription();
     }
 }

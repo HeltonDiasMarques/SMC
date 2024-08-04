@@ -20,6 +20,9 @@ public class Schedule {
     @Schema(description = "ID of the doctor", example = "D123")
     private String doctorId;
 
+    @Schema(description = "ID of the patient", example = "P123")
+    private String patientId;
+
     @Schema(description = "Date of the schedule", example = "2024-08-01")
     private Date date;
 
@@ -40,6 +43,7 @@ public class Schedule {
 
     public Schedule(String id,
                     String doctorId,
+                    String patientId,
                     Date date,
                     Time startTime,
                     Time endTime,
@@ -48,6 +52,7 @@ public class Schedule {
                     Timestamp updatedAt) {
         this.id = id;
         this.doctorId = doctorId;
+        this.patientId = patientId;
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;

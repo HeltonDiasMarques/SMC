@@ -42,7 +42,7 @@ public class DoctorController extends UserController<Doctor> {
     @PostMapping("/register")
     public ResponseEntity<?> createDoctor(@RequestBody Doctor doctor) {
         try {
-            doctor.setSpecialty(Specialty.fromCode(doctor.getSpecialty().getCode()));
+            Specialty specialtyEnum = Specialty.fromCode(doctor.getSpecialty());
             return createUser(doctor);
         } catch (CustomException e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getMessage());

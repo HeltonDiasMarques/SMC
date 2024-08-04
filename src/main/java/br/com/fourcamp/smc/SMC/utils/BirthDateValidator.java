@@ -56,10 +56,15 @@ public class BirthDateValidator {
     @Schema(description = "Check if the date corresponds to an adult (18 years or older)", example = "2024-08-01")
     public static boolean isAdult(String date) {
         try {
+            sdf.parse(date);
             long ageInMillis = System.currentTimeMillis() - sdf.parse(date).getTime();
             long ageInYears = ageInMillis / (1000L * 60 * 60 * 24 * 365);
-            return ageInYears >= 18;
-        } catch (ParseException e) {
+            if (ageInYears >= 18) {
+                return true;
+            } else {
+                throw new CustomException(ErrorMessage.INVALID_AGE);
+            }
+        } catch (ParseException e){
             throw new CustomException(ErrorMessage.INVALID_DATE_FORMAT);
         }
     }
