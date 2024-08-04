@@ -1,5 +1,5 @@
 # Sistema de Marcação de Consultas Médicas (SMC)
- ![SMC](https://github.com/user-attachments/assets/c2880643-80d2-4f57-a08e-8bed2900d3ec)
+![SMC](https://github.com/user-attachments/assets/15e44a4d-c9ee-4337-80ea-42c9b1768b2f)
 ## Descrição
 
 
