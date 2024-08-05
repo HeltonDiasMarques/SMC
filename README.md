@@ -1,12 +1,12 @@
 # Sistema de Marcação de Consultas Médicas (SMC)
 ![SMC](https://github.com/user-attachments/assets/4ce19bc0-f00e-4daf-85b9-28abc427d0cb)
 
-## Descrição
+### Descrição
 
 
 O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenvolvido em Java utilizando Spring Boot, com foco na gestão de agendamentos de consultas médicas. O sistema é projetado para gerenciar pacientes e médicos, oferecendo funcionalidades para agendar, cancelar e visualizar consultas médicas, além de gerenciar perfis de usuários e suas permissões.
 
-## Tecnologias Utilizadas
+### Tecnologias Utilizadas
 
 - **Java**: Linguagem de programação principal.
 - **Spring Boot**: Framework para desenvolvimento de aplicações Java.
@@ -19,9 +19,9 @@ O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenv
 - **JDBC Template**: Camada de persistência de dados.
 - **Enum**: Para tratamento de exceções e mensagens de erro.
 
-## Funcionalidades
+### Funcionalidades
 
-### Pacientes
+#### Pacientes
 
 - Cadastro e login;
 - Atualização do cadastro;
@@ -29,7 +29,7 @@ O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenv
 - Consulta de todos os pacientes;
 - Consulta de algum paciente por ID.
 
-### Médicos
+#### Médicos
 
 - Cadastro e login;
 - Atualização do cadastro;
@@ -37,7 +37,7 @@ O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenv
 - Consulta de todos os doutores;
 - Consulta de algum doutor por ID.
 
-### Agendamento de Consultas
+#### Agendamento de Consultas
 
 - Criação de consulta para o doutor.
 - Marcação de consulta para o paciente.
@@ -45,7 +45,7 @@ O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenv
 - Busca de horários pelo ID do(a) Dr(a)..
 - Busca de horários pelo ID do(a) paciente
 
-## Estrutura do Projeto
+### Estrutura do Projeto
 
 - **Controller**: Ponto de entrada da aplicação (endpoints).
 - **Dao**: Camada de persistência de dados.
@@ -56,7 +56,7 @@ O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenv
 - **Utils**: Classes utilitárias e constantes.
 - **Model**: Classes de domínio.
 
-## Configuração
+### Configuração
 
 1. **Clone o repositório:**
     ```bash
@@ -72,11 +72,11 @@ O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenv
     ./mvnw spring-boot:run
     ```
 
-## Documentação da API
+### Documentação da API
 
 A documentação da API está disponível no Swagger. Após iniciar a aplicação, acesse:
 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
-## Testes
+### Testes
 
 Para testar a aplicação, utilize o Postman para interagir com os endpoints expostos e verificar a funcionalidade do sistema.
