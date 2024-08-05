@@ -47,18 +47,18 @@ O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenv
 A estrutura do projeto segue o padrão de camadas, conforme descrito abaixo:
 ```bash
 SMC/ #Arquivos de configuração do projeto.
-├── config/
-|    ├── security/
+├── config/ #Configuração do projeto.
+|   └── security/ #Configuração e outras utilidades referentes a segurança.
 ├── controller/ #Pontos de entrada da aplicação (endpoints).
 ├── dao/ #Camada de persistência de dados.
-|    ├── impl/
+|    └── impl/
 ├── dto/ #Objetos de transferência de dados.
 ├── enums/ #Enumerações utilizadas no projeto.
 ├── exceptions/ #Exceções personalizadas.
 ├── model/ #Classes modelo(Patient, Doctor, Schedules, User e Address)
 ├── usecase/ #Camada de negócios, onde ficam as regras e lógica do projeto.
 ├── utils/ #Classes utilitárias e constantes.
-├──SmcApplication/ #Classe principal para inicialização da aplicação.
+└──SmcApplication/ #Classe principal para inicialização da aplicação.
 ```
 ##Passo a passo para utilização do projeto:
 ### 1. Configuração:
