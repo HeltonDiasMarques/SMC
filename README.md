@@ -1,10 +1,8 @@
-# Sistema de Marcação de Consultas Médicas (SMC)
-![SMC](https://github.com/user-attachments/assets/4ce19bc0-f00e-4daf-85b9-28abc427d0cb)
+![SMC](https://github.com/user-attachments/assets/6a196111-80da-4acd-b688-71fa42181002)
 
-### 📝 Descrição
 O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenvolvido em Java utilizando Spring Boot, com foco na gestão de agendamentos de consultas médicas. O sistema é projetado para gerenciar pacientes e médicos, oferecendo funcionalidades para agendar, cancelar e visualizar consultas médicas, além de gerenciar perfis de usuários e suas permissões.
 
-### Tecnologias Utilizadas
+![DESCRIÇÃO (1)](https://github.com/user-attachments/assets/b870dfd5-7a9c-42af-8947-eab6b33fce59)
 
 - **Java**: Linguagem de programação principal.
 - **Spring Boot**: Framework para desenvolvimento de aplicações Java.
@@ -17,7 +15,7 @@ O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenv
 - **JDBC Template**: Camada de persistência de dados.
 - **Enum**: Para tratamento de exceções, mensagens de erro e outras utilidades.
 
-### Funcionalidades
+![DESCRIÇÃO (2)](https://github.com/user-attachments/assets/75cddd7b-711e-420b-b0ef-a8b1b45b14a1)
 
 #### Pacientes
 
@@ -61,6 +59,24 @@ SMC/ #Arquivos de configuração do projeto.
 └──SmcApplication/ #Classe principal para inicialização da aplicação.
 ```
 ## Passo a passo para utilização do projeto:
+### 0. Intalação:
+**Instale essas ferramentas:**
+0.1 Postgree: 
+```bash
+https://www.postgresql.org/download/
+```
+0.2 Intellij IDEA: 
+```bash
+https://www.jetbrains.com/idea/download/other.html
+```
+0.3 Postman: 
+```bash
+https://www.postman.com/downloads/
+```
+0.4 Git bash:
+```bash
+https://git-scm.com/downloads
+```
 ### 1. Configuração:
 1.1 **Abra o git bash**
 2.1 **Clone o repositório:**
@@ -83,11 +99,12 @@ SMC/ #Arquivos de configuração do projeto.
      
 ### 2. Preparando o banco de dados.
 2.1 **Clonar o repositorio que contem as tabelas e functions**
-   Para preparar o banco de dados fiz um repositorio para você clonar, o link é:
+   Para preparar o banco de dados fiz um repositório que contém tudo que o sistema precisará:
    ```bash
-      https://github.com/HeltonDiasMarques/database_smc.
+      git clone https://github.com/HeltonDiasMarques/database_smc.git
    ```
 Nele você terá acesso a todas as tabelas e functions  usadas para o funcionamento do projeto acontecer como o esperado.
+2.2 **Utilizar
    
 ### Documentação da API
 
