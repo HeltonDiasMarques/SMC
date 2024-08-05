@@ -60,7 +60,7 @@ SMC/ #Arquivos de configuração do projeto.
 ├── utils/ #Classes utilitárias e constantes.
 └──SmcApplication/ #Classe principal para inicialização da aplicação.
 ```
-##Passo a passo para utilização do projeto:
+## Passo a passo para utilização do projeto:
 ### 1. Configuração:
 
 1.1 **Clone o repositório:**
