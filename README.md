@@ -76,7 +76,7 @@ SMC/ #Arquivos de configuração do projeto.
 
 3.1 **Executar a aplicação:**
    - Então execute a aplicação:
-    ```bash
+    ``` bash
     ./mvnw spring-boot:run
     ```
     - Caso esta linha seja retornada, ela iniciou sem problemas: Started SmcApplication in 4.717 seconds (process running for 5.356)
