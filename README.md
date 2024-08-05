@@ -1,7 +1,7 @@
 # Sistema de Marcação de Consultas Médicas (SMC)
 ![SMC](https://github.com/user-attachments/assets/4ce19bc0-f00e-4daf-85b9-28abc427d0cb)
 
-### Descrição
+### 📝 Descrição
 O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenvolvido em Java utilizando Spring Boot, com foco na gestão de agendamentos de consultas médicas. O sistema é projetado para gerenciar pacientes e médicos, oferecendo funcionalidades para agendar, cancelar e visualizar consultas médicas, além de gerenciar perfis de usuários e suas permissões.
 
 ### Tecnologias Utilizadas
@@ -43,33 +43,59 @@ O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenv
 - Busca de horários pelo ID do(a) Dr(a)..
 - Busca de horários pelo ID do(a) paciente
 
-### Estrutura do Projeto
+📁 Estrutura do Projeto
+A estrutura do projeto segue o padrão de camadas, conforme descrito abaixo:
 
-- **Controller**: Ponto de entrada da aplicação (endpoints).
-- **Dao**: Camada de persistência de dados.
-- **UseCase**: Lógica de negócio.
-- **DTO**: Objetos para mapeamento de entrada do usuário.
-- **Exceptions**: Exceções personalizadas.
-- **Config**: Configurações do projeto.
-- **Utils**: Classes utilitárias e constantes.
-- **Model**: Classes de domínio.
+Diretórios Principais
+src/main/java/br/com/fourcamp/smc/SMC
+🔧 config
+    Arquivos de configuração do projeto.
+🚪 controller
+    Pontos de entrada da aplicação (endpoints).
+💾 dao
+    Camada de persistência de dados.
+📤 dto
+    Objetos de transferência de dados.
+🔠 enums
+    Enumerações utilizadas no projeto.
+❗ exceptions
+    Exceções personalizadas.
+📦 model
+🩺 Patients
+    Classes de modelo dos pacientes.
+👨‍⚕️ Doctors
+    Classes de modelo dos médicos.
+🛠 Administrators
+    Classes de modelo dos administradores.
+💼 usecase
+    Camada de negócios, onde ficam as regras e lógica do projeto.
+🔨 utils
+    Classes utilitárias e constantes.
+🏠 SmcApplication.java
+    Classe principal para inicialização da aplicação.
 
-### Configuração
+##Passo a passo para utilização do projeto:
+### 1. Configuração:
 
-1. **Clone o repositório:**
+1.1 **Clone o repositório:**
+    Primeiro vamos clonar do repositório remoto para um local em sua máquina.
     ```bash
     git clone https://github.com/seu-usuario/smc.git
     ```
 
-2. **Configurar o banco de dados:**
-    - Crie um banco de dados PostgreSQL.
-    - Atualize o arquivo `application.yml` com as credenciais do banco de dados.
+2.1 **Configurar o banco de dados:**
+    Após garantir que tudo foi clonado com sucesso, vamos criar o banco de dados e configurar o .yml
+    - Crie um banco de dados PostgreSQL chamado de smc(Ou outro nome que preferir).
+    - Atualize o arquivo `application.yml` com as credenciais do banco de dados criado por você.
 
-3. **Executar a aplicação:**
+3.1 **Executar a aplicação:**
+    Então execute a aplicação:
     ```bash
     ./mvnw spring-boot:run
     ```
-
+    Caso esta linha seja retornada, ela iniciou sem problemas: Started SmcApplication in 4.717 seconds (process running for 5.356)
+### 2. Preparando o banco de dados.
+    
 ### Documentação da API
 
 A documentação da API está disponível no Swagger. Após iniciar a aplicação, acesse:
