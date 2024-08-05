@@ -65,9 +65,9 @@ SMC/ #Arquivos de configuração do projeto.
 
 1.1 **Clone o repositório:**
    - Primeiro vamos clonar do repositório remoto para um local em sua máquina.
-    ```bash
+   ```bash
     git clone https://github.com/seu-usuario/smc.git
-    ```
+   ```
 
 2.1 **Configurar o banco de dados:**
     Após garantir que tudo foi clonado com sucesso, vamos criar o banco de dados e configurar o .yml
@@ -79,7 +79,7 @@ SMC/ #Arquivos de configuração do projeto.
    ```bash
     ./mvnw spring-boot:run
    ```
-    - Caso esta linha seja retornada, ela iniciou sem problemas: Started SmcApplication in 4.717 seconds (process running for 5.356)
+   - Caso esta linha seja retornada, ela iniciou sem problemas: Started SmcApplication in 4.717 seconds (process running for 5.356)
 ### 2. Preparando o banco de dados.
     
 ### Documentação da API
