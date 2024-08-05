@@ -45,34 +45,19 @@ O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenv
 
 📁 Estrutura do Projeto
 A estrutura do projeto segue o padrão de camadas, conforme descrito abaixo:
-
-Diretórios Principais
-src/main/java/br/com/fourcamp/smc/SMC
-🔧 config
-    Arquivos de configuração do projeto.
-🚪 controller
-    Pontos de entrada da aplicação (endpoints).
-💾 dao
-    Camada de persistência de dados.
-📤 dto
-    Objetos de transferência de dados.
-🔠 enums
-    Enumerações utilizadas no projeto.
-❗ exceptions
-    Exceções personalizadas.
-📦 model
-🩺 Patients
-    Classes de modelo dos pacientes.
-👨‍⚕️ Doctors
-    Classes de modelo dos médicos.
-🛠 Administrators
-    Classes de modelo dos administradores.
-💼 usecase
-    Camada de negócios, onde ficam as regras e lógica do projeto.
-🔨 utils
-    Classes utilitárias e constantes.
-🏠 SmcApplication.java
-    Classe principal para inicialização da aplicação.
+SMC/ #Arquivos de configuração do projeto.
+├── config/
+|    ├── security/
+├── controller/ #Pontos de entrada da aplicação (endpoints).
+├── dao/ #Camada de persistência de dados.
+|    ├── impl/
+├── dto/ #Objetos de transferência de dados.
+├── enums/ #Enumerações utilizadas no projeto.
+├── exceptions/ #Exceções personalizadas.
+├── model/ #Classes modelo(Patient, Doctor, Schedules, User e Address)
+├── usecase/ #Camada de negócios, onde ficam as regras e lógica do projeto.
+├── utils/ #Classes utilitárias e constantes.
+├──SmcApplication/ #Classe principal para inicialização da aplicação.
 
 ##Passo a passo para utilização do projeto:
 ### 1. Configuração:
