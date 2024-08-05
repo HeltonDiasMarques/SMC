@@ -49,6 +49,7 @@ public class PatientService extends UserService<Patient> {
     @Override
     public void updateUser(Patient patient, Class<Patient> clazz) {
         patient.setUserType(UserType.PATIENT);
+        patient.setPassword(passwordEncoder.encode(patient.getPassword()));
         super.updateUser(patient, clazz);
     }
 

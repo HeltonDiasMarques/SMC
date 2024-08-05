@@ -57,6 +57,7 @@ public class DoctorService extends UserService<Doctor> {
     public void updateUser(Doctor doctor, Class<Doctor> clazz) {
         validateDoctor(doctor, false);
         doctor.setUserType(UserType.DOCTOR);
+        doctor.setPassword(passwordEncoder.encode(doctor.getPassword()));
         super.updateUser(doctor, clazz);
     }
 
