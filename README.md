@@ -65,6 +65,7 @@ SMC/ #Arquivos de configuração do projeto.
 
 1.1 **Clone o repositório:**
     Primeiro vamos clonar do repositório remoto para um local em sua máquina.
+    
     ```bash
     git clone https://github.com/seu-usuario/smc.git
     ```
