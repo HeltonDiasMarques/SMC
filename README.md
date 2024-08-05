@@ -77,7 +77,7 @@ SMC/ #Arquivos de configuração do projeto.
 3.1 **Executar a aplicação:**
     Então execute a aplicação:
     
-    ```bash
+    ```
     ./mvnw spring-boot:run
     ```
     
