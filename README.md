@@ -62,26 +62,33 @@ SMC/ #Arquivos de configuração do projeto.
 ```
 ## Passo a passo para utilização do projeto:
 ### 1. Configuração:
-
-1.1 **Clone o repositório:**
+1.1 **Abra o git bash**
+2.1 **Clone o repositório:**
    - Primeiro vamos clonar do repositório remoto para um local em sua máquina.
    ```bash
     git clone https://github.com/seu-usuario/smc.git
    ```
 
-2.1 **Configurar o banco de dados:**
+3.1 **Configurar o banco de dados:**
     Após garantir que tudo foi clonado com sucesso, vamos criar o banco de dados e configurar o .yml
     - Crie um banco de dados PostgreSQL chamado de smc(Ou outro nome que preferir).
     - Atualize o arquivo `application.yml` com as credenciais do banco de dados criado por você.
 
-3.1 **Executar a aplicação:**
+4.1 **Executar a aplicação:**
    - Então execute a aplicação:
    ```bash
     ./mvnw spring-boot:run
    ```
    - Caso esta linha seja retornada, ela iniciou sem problemas: Started SmcApplication in 4.717 seconds (process running for 5.356)
+     
 ### 2. Preparando o banco de dados.
-    
+2.1 **Clonar o repositorio que contem as tabelas e functions**
+   Para preparar o banco de dados fiz um repositorio para você clonar, o link é:
+   ```bash
+      https://github.com/HeltonDiasMarques/database_smc.
+   ```
+Nele você terá acesso a todas as tabelas e functions  usadas para o funcionamento do projeto acontecer como o esperado.
+   
 ### Documentação da API
 
 A documentação da API está disponível no Swagger. Após iniciar a aplicação, acesse:
