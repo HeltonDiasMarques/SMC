@@ -1,21 +1,21 @@
 # Sistema de Marcação de Consultas Médicas (SMC)
 ![SMC](https://github.com/user-attachments/assets/4ce19bc0-f00e-4daf-85b9-28abc427d0cb)
 
-### Descrição------------------
+### Descrição
 O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenvolvido em Java utilizando Spring Boot, com foco na gestão de agendamentos de consultas médicas. O sistema é projetado para gerenciar pacientes e médicos, oferecendo funcionalidades para agendar, cancelar e visualizar consultas médicas, além de gerenciar perfis de usuários e suas permissões.
 
 ### Tecnologias Utilizadas
 
 - **Java**: Linguagem de programação principal.
 - **Spring Boot**: Framework para desenvolvimento de aplicações Java.
-- **Spring Security**: Implementado para segurança e autenticação (ou JWT, se a implementação de Spring Security for muito complicada).
+- **Spring Security**: Implementado para segurança e autenticação.
 - **Spring Boot Starter Data JDBC**: Para interação com o banco de dados PostgreSQL.
 - **PostgreSQL**: Banco de dados relacional.
 - **Lombok**: Biblioteca para redução de código boilerplate.
 - **Swagger**: Documentação da API.
 - **Postman**: Teste de APIs.
 - **JDBC Template**: Camada de persistência de dados.
-- **Enum**: Para tratamento de exceções e mensagens de erro.
+- **Enum**: Para tratamento de exceções, mensagens de erro e outras utilidades.
 
 ### Funcionalidades
 
