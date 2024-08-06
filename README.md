@@ -41,7 +41,7 @@ O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenv
 - Busca de horários pelo ID do(a) Dr(a)..
 - Busca de horários pelo ID do(a) paciente
 
-📁 Estrutura do Projeto
+![DESCRIÇÃO (3)](https://github.com/user-attachments/assets/5d0e0fe9-2c82-4dd1-a895-033d447e176d)
 A estrutura do projeto segue o padrão de camadas, conforme descrito abaixo:
 ```bash
 SMC/ #Arquivos de configuração do projeto.
@@ -58,37 +58,44 @@ SMC/ #Arquivos de configuração do projeto.
 ├── utils/ #Classes utilitárias e constantes.
 └──SmcApplication/ #Classe principal para inicialização da aplicação.
 ```
-## Passo a passo para utilização do projeto:
+
+![DESCRIÇÃO (4)](https://github.com/user-attachments/assets/c91ed434-8205-4910-ac18-95b7767a4ee8)
 ### 0. Intalação:
 **Instale essas ferramentas:**
-0.1 Postgree: 
-```bash
-https://www.postgresql.org/download/
-```
-0.2 Intellij IDEA: 
-```bash
-https://www.jetbrains.com/idea/download/other.html
-```
-0.3 Postman: 
-```bash
-https://www.postman.com/downloads/
-```
-0.4 Git bash:
-```bash
-https://git-scm.com/downloads
-```
-### 1. Configuração:
-1.1 **Abra o git bash**
-2.1 **Clone o repositório:**
-   - Primeiro vamos clonar do repositório remoto para um local em sua máquina.
-   ```bash
-    git clone https://github.com/seu-usuario/smc.git
-   ```
 
+0.1 Postgree: https://www.postgresql.org/download/
+
+0.2 Intellij IDEA: https://www.jetbrains.com/idea/download/other.html
+
+0.3 Postman: https://www.postman.com/downloads/
+
+0.4 Git bash: https://git-scm.com/downloads
+
+### 1. Configuração:
+1.1 Crie uma pasta onde você irá guardar o repósitorio.
+1.2 **Abra o git bash**
+Após instalar o Git bash em sua máquina, para abri-lo, clicar com o botão direito na pasta que criamos anteriormente, então clicar com o botão esquerdo na opçao Open Git Bash here.
+![bash](https://github.com/user-attachments/assets/fb02f82b-ad07-4f7a-b6b6-27b2cf2aa609)
+
+Então esse terminal irá abrir:
+
+![Terminal bash](https://github.com/user-attachments/assets/57e52c6d-75f0-46c0-a679-cc1fff958074)
+
+Verifique se o caminho está realmente correto.
+
+2.1 **Clone o repositório:**
+
+Após criarmos a pasta e termos aberto o Git bash, vamos executar o seguinte comando no terminal:
+```bash
+git clone https://github.com/HeltonDiasMarques/SMC.git
+```
+![git clone](https://github.com/user-attachments/assets/3829ae51-e5e5-4dbd-bd44-6014ec94a4e3)
+
+Caso dê tudo certo, isso será apresentado.
 3.1 **Configurar o banco de dados:**
-    Após garantir que tudo foi clonado com sucesso, vamos criar o banco de dados e configurar o .yml
-    - Crie um banco de dados PostgreSQL chamado de smc(Ou outro nome que preferir).
-    - Atualize o arquivo `application.yml` com as credenciais do banco de dados criado por você.
+Após garantir que tudo foi clonado com sucesso, vamos criar o banco de dados e configurar o .yml
+- Crie um banco de dados PostgreSQL chamado de smc(Ou outro nome que preferir).
+- Atualize o arquivo `application.yml` com as credenciais do banco de dados criado por você.
 
 4.1 **Executar a aplicação:**
    - Então execute a aplicação:
