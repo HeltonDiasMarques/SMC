@@ -1,4 +1,4 @@
-![codigosql](https://github.com/user-attachments/assets/0a9c7ea2-e6e7-406a-9663-1f5fdaa0cfd3)![SMC](https://github.com/user-attachments/assets/6a196111-80da-4acd-b688-71fa42181002)
+![SMC](https://github.com/user-attachments/assets/6a196111-80da-4acd-b688-71fa42181002)
 
 O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenvolvido em Java utilizando Spring Boot, com foco na gestão de agendamentos de consultas médicas. O sistema é projetado para gerenciar pacientes e médicos, oferecendo funcionalidades para agendar, cancelar e visualizar consultas médicas, além de gerenciar perfis de usuários e suas permissões.
 
@@ -115,11 +115,9 @@ git clone https://github.com/HeltonDiasMarques/database_smc.git
 Vou exemplificar com uma function, mas será o mesmo processo, tanto para as outras functions, quanto para as tabelas.
 Vamos começar com você abrindo a pasta functions, então clicando com o botão direito em uma das function, coloque o mouse encima da opção "Abrir com >" e escolha a opção "Bloco de Notas".
 
-![Abrindo o sql](https://github.com/user-attachments/assets/e620eebb-131f-45dc-bd04-1682fd58acbe)
 
 - Então será aberto o bloco de notas com este Script:
 
-![codigosql](https://github.com/user-attachments/assets/58ebcf15-0bf7-470b-ba52-376c20fc8081)
 
 Copie todo o código e abra o pgAdmin4 novamente.
 
