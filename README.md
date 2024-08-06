@@ -93,10 +93,18 @@ git clone https://github.com/HeltonDiasMarques/SMC.git
 
 Caso dê tudo certo, isso será apresentado.
 3.1 **Configurar o banco de dados:**
-Após garantir que tudo foi clonado com sucesso, vamos criar o banco de dados e configurar o .yml
-- Crie um banco de dados PostgreSQL chamado de smc(Ou outro nome que preferir).
-- Atualize o arquivo `application.yml` com as credenciais do banco de dados criado por você.
+Agora que terminamos de preparar o repósirotio local, vamos configurar o banco de dados(Database).
+- Vamos começar criando um banco de dados, para isso clique com botão direito em "Databases" cloque o mouse encima de "Create" e clique com o botão esquerdo em "Database..."
+  
+![criandoBanco](https://github.com/user-attachments/assets/1bc1bfd5-10fe-4097-85dc-71c25e7bf54a)
 
+Então uma aba irá se abrir, lá será possivel definir o nome do seu banco de dados, recomendo que utilize um nome que remeta ao projeto, no meu caso será "smc":
+
+![nomeando o bancp](https://github.com/user-attachments/assets/8875d758-1fed-444b-bda7-9896d9cc6d70)
+
+Após acabar, clique em "Save".
+
+- Com isso, estaremos prontos para inserir as functions e tabelas no banco de dados(Database)
 4.1 **Executar a aplicação:**
    - Então execute a aplicação:
    ```bash
