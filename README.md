@@ -1,4 +1,4 @@
-![SMC](https://github.com/user-attachments/assets/6a196111-80da-4acd-b688-71fa42181002)
+![codigosql](https://github.com/user-attachments/assets/0a9c7ea2-e6e7-406a-9663-1f5fdaa0cfd3)![SMC](https://github.com/user-attachments/assets/6a196111-80da-4acd-b688-71fa42181002)
 
 O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenvolvido em Java utilizando Spring Boot, com foco na gestão de agendamentos de consultas médicas. O sistema é projetado para gerenciar pacientes e médicos, oferecendo funcionalidades para agendar, cancelar e visualizar consultas médicas, além de gerenciar perfis de usuários e suas permissões.
 
@@ -104,21 +104,26 @@ Então uma aba irá se abrir, lá será possivel definir o nome do seu banco de 
 
 Após acabar, clique em "Save".
 
-- Com isso, estaremos prontos para inserir as functions e tabelas no banco de dados(Database)
-4.1 **Executar a aplicação:**
-   - Então execute a aplicação:
-   ```bash
-    ./mvnw spring-boot:run
-   ```
-   - Caso esta linha seja retornada, ela iniciou sem problemas: Started SmcApplication in 4.717 seconds (process running for 5.356)
-     
-### 2. Preparando o banco de dados.
-2.1 **Clonar o repositorio que contem as tabelas e functions**
-   Para preparar o banco de dados fiz um repositório que contém tudo que o sistema precisará:
-   ```bash
-      git clone https://github.com/HeltonDiasMarques/database_smc.git
-   ```
-Nele você terá acesso a todas as tabelas e functions  usadas para o funcionamento do projeto acontecer como o esperado.
+- Com isso, estaremos prontos para inserir as functions e tabelas no banco de dados(Database), criei um repósitorio que contém todas as tabelas e as functions necessarias para o funcionemento do projeto.
+Link do repóstorio: https://github.com/HeltonDiasMarques/database_smc
+
+Caso queira apenas clonar, faça o mesmo processo de clonagem anterior, mas agora utilizando
+```bash
+git clone https://github.com/HeltonDiasMarques/database_smc.git
+```
+- Você terá acesso a duas pastas, uma chamada "Functions" e outra chamada "Tables"
+Vou exemplificar com uma function, mas será o mesmo processo, tanto para as outras functions, quanto para as tabelas.
+Vamos começar com você abrindo a pasta functions, então clicando com o botão direito em uma das function, coloque o mouse encima da opção "Abrir com >" e escolha a opção "Bloco de Notas".
+
+![Abrindo o sql](https://github.com/user-attachments/assets/e620eebb-131f-45dc-bd04-1682fd58acbe)
+
+- Então será aberto o bloco de notas com este Script:
+
+![codigosql](https://github.com/user-attachments/assets/58ebcf15-0bf7-470b-ba52-376c20fc8081)
+
+Copie todo o código e abra o pgAdmin4 novamente.
+
+
 2.2 **Utilizar
    
 ### Documentação da API
