@@ -41,7 +41,7 @@ O Sistema de Marcação de Consultas Médicas (SMC) é um sistema backend desenv
 - Busca de horários pelo ID do(a) Dr(a)..
 - Busca de horários pelo ID do(a) paciente
 
-![DESCRIÇÃO (3)](https://github.com/user-attachments/assets/5d0e0fe9-2c82-4dd1-a895-033d447e176d)
+📁 Estrutura do Projeto
 A estrutura do projeto segue o padrão de camadas, conforme descrito abaixo:
 ```bash
 SMC/ #Arquivos de configuração do projeto.
@@ -58,77 +58,147 @@ SMC/ #Arquivos de configuração do projeto.
 ├── utils/ #Classes utilitárias e constantes.
 └──SmcApplication/ #Classe principal para inicialização da aplicação.
 ```
-
-![DESCRIÇÃO (4)](https://github.com/user-attachments/assets/c91ed434-8205-4910-ac18-95b7767a4ee8)
+## Passo a passo para utilização do projeto:
 ### 0. Intalação:
 **Instale essas ferramentas:**
-
-0.1 Postgree: https://www.postgresql.org/download/
-
-0.2 Intellij IDEA: https://www.jetbrains.com/idea/download/other.html
-
-0.3 Postman: https://www.postman.com/downloads/
-
-0.4 Git bash: https://git-scm.com/downloads
-
-### 1. Configuração:
-1.1 Crie uma pasta onde você irá guardar o repósitorio.
-1.2 **Abra o git bash**
-Após instalar o Git bash em sua máquina, para abri-lo, clicar com o botão direito na pasta que criamos anteriormente, então clicar com o botão esquerdo na opçao Open Git Bash here.
-![bash](https://github.com/user-attachments/assets/fb02f82b-ad07-4f7a-b6b6-27b2cf2aa609)
-
-Então esse terminal irá abrir:
-
-![Terminal bash](https://github.com/user-attachments/assets/57e52c6d-75f0-46c0-a679-cc1fff958074)
-
-Verifique se o caminho está realmente correto.
-
-2.1 **Clone o repositório:**
-
-Após criarmos a pasta e termos aberto o Git bash, vamos executar o seguinte comando no terminal:
+0.1 Postgree: 
 ```bash
-git clone https://github.com/HeltonDiasMarques/SMC.git
+https://www.postgresql.org/download/
 ```
-![git clone](https://github.com/user-attachments/assets/3829ae51-e5e5-4dbd-bd44-6014ec94a4e3)
+0.2 Intellij IDEA: 
+```bash
+https://www.jetbrains.com/idea/download/other.html
+```
+0.3 Postman: 
+```bash
+https://www.postman.com/downloads/
+```
+0.4 Git bash:
+```bash
+https://git-scm.com/downloads
+```
+### 1. Configuração:
+1.1 **Abra o git bash**
+2.1 **Clone o repositório:**
+   - Primeiro vamos clonar do repositório remoto para um local em sua máquina.
+   ```bash
+    git clone https://github.com/seu-usuario/smc.git
+   ```
 
-Caso dê tudo certo, isso será apresentado.
 3.1 **Configurar o banco de dados:**
-Agora que terminamos de preparar o repósirotio local, vamos configurar o banco de dados(Database).
-- Vamos começar criando um banco de dados, para isso clique com botão direito em "Databases" cloque o mouse encima de "Create" e clique com o botão esquerdo em "Database..."
-  
-![criandoBanco](https://github.com/user-attachments/assets/1bc1bfd5-10fe-4097-85dc-71c25e7bf54a)
+    Após garantir que tudo foi clonado com sucesso, vamos criar o banco de dados e configurar o .yml
+    - Crie um banco de dados PostgreSQL chamado de smc(Ou outro nome que preferir).
+    - Atualize o arquivo `application.yml` com as credenciais do banco de dados criado por você.
 
-Então uma aba irá se abrir, lá será possivel definir o nome do seu banco de dados, recomendo que utilize um nome que remeta ao projeto, no meu caso será "smc":
+4.1 **Executar a aplicação:**
+   - Então execute a aplicação:
+   ```bash
+    ./mvnw spring-boot:run
+   ```
+   - Caso esta linha seja retornada, ela iniciou sem problemas: Started SmcApplication in 4.717 seconds (process running for 5.356)
+     
+### 2. Preparando o banco de dados:
+2.1 **Clonar o repositório que contem as tabelas e functions:**
+   Para preparar o banco de dados fiz um repositório que contém tudo que o sistema precisará:
+   ```bash
+      git clone https://github.com/HeltonDiasMarques/database_smc.git
+   ```
+Nele você terá acesso a todas as tabelas e functions  usadas para o funcionamento do projeto acontecer como o esperado.
 
-![nomeando o bancp](https://github.com/user-attachments/assets/8875d758-1fed-444b-bda7-9896d9cc6d70)
+2.2 **Abrir a Query Tool:**
 
-Após acabar, clique em "Save".
+Clique com o botão direito no banco de dados recém-criado (smc_database) e selecione "Query Tool".
 
-- Com isso, estaremos prontos para inserir as functions e tabelas no banco de dados(Database), criei um repósitorio que contém todas as tabelas e as functions necessarias para o funcionemento do projeto.
-Link do repóstorio: https://github.com/HeltonDiasMarques/database_smc
+2.3 **Criar Tabelas:**
 
-Caso queira apenas clonar, faça o mesmo processo de clonagem anterior, mas agora utilizando
+No repositório clonado, abra o arquivo SQL que contém os scripts para criar tabelas (geralmente um arquivo .sql).
+Copie o conteúdo do arquivo e cole na Query Tool do pgAdmin4.
+Execute o script clicando no ícone de "Executar" (raio).
+
+2.4 **Criar Funções:**
+
+Da mesma forma, copie os scripts para criar funções do arquivo SQL do repositório e cole na Query Tool.
+Execute o script.
+
+## 3. Preparando o postman:
+3.1 **Abrir o Postman:**
+
+Abra o Postman no seu computador.
+
+3.2 **Criar uma Nova Requisição:**
+
+Clique em "New" e selecione "Request".
+Nomeie a requisição e adicione-a a uma coleção se desejar.
+
+3.3 **Configurar a Requisição:**
+
+Configure o método HTTP (GET, POST, etc.) em relação endpoint que deseja testar.
+No campo URL, insira o endereço do endpoint que você deseja testar.
+
+3.4 **Adicionar Headers e Body (se necessário):**
+
+Adicione qualquer header necessário, como Content-Type: application/json.
+Se estiver fazendo uma requisição POST ou PUT, adicione o corpo da requisição em JSON.
+
+3.4 **Enviar a Requisição:**
+
+Clique em "Send" para enviar a requisição.
+Verifique a resposta para garantir que a operação foi realizada com sucesso.**
+
+![DESCRIÇÃO (7)](https://github.com/user-attachments/assets/69c15762-1868-42d2-a4e7-e3e5c88621eb)
+
+Clonagem do Repositório:
 ```bash
 git clone https://github.com/HeltonDiasMarques/database_smc.git
 ```
-- Você terá acesso a duas pastas, uma chamada "Functions" e outra chamada "Tables"
-Vou exemplificar com uma function, mas será o mesmo processo, tanto para as outras functions, quanto para as tabelas.
-Vamos começar com você abrindo a pasta functions, então clicando com o botão direito em uma das function, coloque o mouse encima da opção "Abrir com >" e escolha a opção "Bloco de Notas".
-
-
-- Então será aberto o bloco de notas com este Script:
-
-
-Copie todo o código e abra o pgAdmin4 novamente.
-
-
-2.2 **Utilizar
-   
-### Documentação da API
+Criação de Tabela no pgAdmin4:
+```bash
+-- Exemplo de criação de tabela
+CREATE TABLE patients (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    cpf VARCHAR(11) UNIQUE NOT NULL,
+    birth_date DATE NOT NULL,
+    address VARCHAR(255),
+    phone VARCHAR(15)
+);
+```
+Criação de Função no pgAdmin4:
+```bash
+-- Exemplo de criação de função
+CREATE OR REPLACE FUNCTION validate_cpf(cpf VARCHAR)
+RETURNS BOOLEAN AS $$
+BEGIN
+    -- Lógica de validação de CPF
+    RETURN TRUE; -- Simplificação, implemente a lógica de validação aqui
+END;
+$$ LANGUAGE plpgsql;
+```
+- URL: http://localhost:8080/patients/register
+- Método: POST
+```bash
+{
+    "name": "Helton Dias Marques",
+    "email": "dias@example.com",
+    "password": "securePass456",
+    "cpf": "147.075.700-11",          // Pode ser "51493311808" ou "514.933.118-08"
+    "datebirth": "2002/02/06",        // Pode ser "20020206", "2002-02-06" ou "2002/02/06"
+    "address": {
+        "cep": "08420-630",
+        "number": "456"
+    },
+    "phone": "(11) 95477-8207",       // Pode ser "(11) 95477-8207" ou "11954778207"
+    "phoneSpare": "11954778208"      // Pode ser "(11) 95477-8208" ou "11954778208"
+}
+```
+![DESCRIÇÃO (5)](https://github.com/user-attachments/assets/bb13c689-0362-4e18-95cb-35ec88745869)
 
 A documentação da API está disponível no Swagger. Após iniciar a aplicação, acesse:
 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
-### Testes
+![DESCRIÇÃO (6)](https://github.com/user-attachments/assets/68d676c5-23ba-4418-9be9-e7b47207bda7)
 
 Para testar a aplicação, utilize o Postman para interagir com os endpoints expostos e verificar a funcionalidade do sistema.
+
+
