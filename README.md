@@ -82,7 +82,7 @@ https://git-scm.com/downloads
 2.1 **Clone o repositório:**
    - Primeiro vamos clonar do repositório remoto para um local em sua máquina.
    ```bash
-    git clone https://github.com/seu-usuario/smc.git
+    git clone https://github.com/HeltonDiasMarques/smc.git
    ```
 
 3.1 **Configurar o banco de dados:**
